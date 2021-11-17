@@ -2,7 +2,15 @@
 {
     MS.colours = 
     {
-        background : "#2C1951"
+        background : "#2C1951",
+        foreground : [
+            "#FDE9C7", //white
+            "#F60644", //red
+            "#FFF062", //yellow
+            "#50F63B", //green
+            "#78FFF7", //cyan
+
+        ]
     };
 
     MS.renderPoint = function (p, {label}={})
