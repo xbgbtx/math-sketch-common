@@ -2,7 +2,7 @@
 {
     MS.colors = 
     {
-        background : "#2C1951",
+        background : "#200C49",
         foreground : [
             "#FDE9C7", //white
             "#F60644", //red
