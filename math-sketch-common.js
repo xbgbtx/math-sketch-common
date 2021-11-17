@@ -13,8 +13,13 @@
         ]
     };
 
-    MS.renderPoint = function (p, {label}={})
+    MS.renderPoint = function (p, {label, colour}={})
     {
+        if ( colour )
+            stroke(colour);
+        else
+            stroke(MS.colour.foreground[0]);
+
         strokeWeight(5);
         point(p);
         
