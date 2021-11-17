@@ -1,6 +1,6 @@
 ( function ( MS )
 {
-    MS.colours = 
+    MS.colors = 
     {
         background : "#2C1951",
         foreground : [
@@ -13,12 +13,12 @@
         ]
     };
 
-    MS.renderPoint = function (p, {label, colour}={})
+    MS.renderPoint = function (p, {label, color}={})
     {
-        if ( colour )
-            stroke(colour);
+        if ( color )
+            stroke(color);
         else
-            stroke(MS.colour.foreground[0]);
+            stroke(MS.colors.foreground[0]);
 
         strokeWeight(5);
         point(p);
