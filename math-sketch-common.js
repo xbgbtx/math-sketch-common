@@ -15,10 +15,10 @@
 
     MS.renderPoint = function (p, {label, color}={})
     {
-        if ( color )
-            stroke(color);
-        else
-            stroke(MS.colors.foreground[0]);
+        let c = color ? color : stroke(MS.colors.foreground[0]);
+            
+        stroke(c);
+        fill(c);
 
         strokeWeight(5);
         point(p);
