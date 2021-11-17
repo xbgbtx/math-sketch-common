@@ -2,7 +2,7 @@
 {
     MS.colours = 
     {
-        background : "2C1951"
+        background : "#2C1951"
     };
 
     MS.renderPoint = function (p, {label}={})
