@@ -17,19 +17,20 @@
     {
         label, 
         color=MS.colors.foreground[0],
-        pointWeight=5,
+        point_weight=8,
+        text_size=15,
     }={})
     {
         stroke(color);
         fill(color);
 
-        strokeWeight(pointWeight);
+        strokeWeight(point_weight);
         point(p);
         
         if ( label )
         {
             strokeWeight(0);
-            textSize(12);
+            textSize(text_size);
             textAlign(RIGHT);
             text(label, p.x-3, p.y-3);
         }
