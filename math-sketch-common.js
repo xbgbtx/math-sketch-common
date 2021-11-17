@@ -14,16 +14,22 @@
     };
 
     MS.renderPoint = function (p, 
-        {label, color=MS.colors.foreground[0]}={})
+    {
+        label, 
+        color=MS.colors.foreground[0],
+        pointWeight=5,
+    }={})
     {
         stroke(color);
         fill(color);
 
-        strokeWeight(5);
+        strokeWeight(pointWeight);
         point(p);
         
         if ( label )
         {
+            strokeWeight(0);
+            textSize(12);
             textAlign(RIGHT);
             text(label, p.x-3, p.y-3);
         }
