@@ -52,7 +52,11 @@
     const InteractionStates = {
         Idle : "Idle",
         Dragging : "Dragging",
-    }
+    };
+
+    const InteractionFlags = {
+        BlockOtherInteractions : "BlockOtherInteractions",
+    };
 
     let interaction_state = InteractionStates.Idle;
     
@@ -68,7 +72,10 @@
                 {
                     for ( const f of interaction_cbs.mouse_pressed )
                     {
-                        f();
+                        let flag = f();
+
+                        if (flag == InteractionStates.BlockOtherInteractions)
+                            break;
                     }
                 } 
                 break;
