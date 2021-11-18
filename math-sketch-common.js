@@ -72,7 +72,7 @@
                     {
                         let flag = f();
 
-                        if (flag == InteractionStates.BlockOtherInteractions)
+                        if (flag == InteractionFlags.BlockOtherInteractions)
                             break;
                     }
                 } 
