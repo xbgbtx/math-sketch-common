@@ -10,9 +10,7 @@
         draw = () => 
         {
             draw_();
-            
-            for ( const cb of render_cbs )
-                cb();
+            render_cbs.forEach( f => f() );
         };
     };
 
