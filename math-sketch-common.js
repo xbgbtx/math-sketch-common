@@ -43,7 +43,7 @@
         mouse_released : [],
     };
 
-    MS.add_interaction_cb = function ( {mouse_pressed, mouse_dragged}={})
+    MS.add_interaction_cb = function ( {mouse_pressed, mouse_released}={})
     {
         if ( mouse_pressed )
             interaction_cbs.mouse_pressed.push(mouse_pressed);
