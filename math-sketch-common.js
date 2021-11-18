@@ -43,13 +43,10 @@
         mouse_released : [],
     };
 
-    MS.add_interaction_cb = function ( {mouse_pressed, mouse_released}={})
+    MS.add_interaction_cb = function ( {mouse_pressed}={})
     {
         if ( mouse_pressed )
             interaction_cbs.mouse_pressed.push(mouse_pressed);
-
-        if ( mouse_released )
-            interaction_cbs.mouse_released.push(mouse_released);
     }
 
     const InteractionStates = {
@@ -86,5 +83,14 @@
             }
         }
     };
+
+    MS.start_drag = function ( cb )
+    {
+        if ( interaction_state != InteractionStates.Dragging )
+            return;
+
+        drag_cb = cb;
+        interaction_state = InteractionStates.Dragging;
+    }
 
 }( window.MS = window.MS || {} ));
