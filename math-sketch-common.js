@@ -86,7 +86,7 @@
 
     MS.start_drag = function ( cb )
     {
-        if ( interaction_state != InteractionStates.Dragging )
+        if ( interaction_state != InteractionStates.Idle )
             return;
 
         drag_cb = cb;
