@@ -91,6 +91,20 @@
 
         drag_cb = cb;
         interaction_state = InteractionStates.Dragging;
-    }
+    };
+
+    MS.Interactions =
+    {
+        drag_points : function ( points, point_drag_cb )
+        {
+            let mouse_pos = new p5.Vector(mouseX, mouseY);
+
+            for ( const p of points )
+            {
+                if ( p5.Vector.dist(mouse_pos, p ) < 10 )
+                    MS.start_drag(() => point_drag_cb(p));
+            }
+        }
+    };
 
 }( window.MS = window.MS || {} ));
