@@ -97,14 +97,17 @@
     {
         drag_points : function ( points, point_drag_cb )
         {
-            return () =>
+            return 
             {
-                let mouse_pos = new p5.Vector(mouseX, mouseY);
-
-                for ( const p of points )
+                mouse_pressed : function ()
                 {
-                    if ( p5.Vector.dist(mouse_pos, p ) < 10 )
-                        MS.start_drag(() => point_drag_cb(p));
+                    let mouse_pos = new p5.Vector(mouseX, mouseY);
+
+                    for ( const p of points )
+                    {
+                        if ( p5.Vector.dist(mouse_pos, p ) < 10 )
+                            MS.start_drag(() => point_drag_cb(p));
+                    }
                 }
             };
         }
