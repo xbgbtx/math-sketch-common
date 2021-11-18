@@ -97,8 +97,7 @@
     {
         drag_points : function ( points, point_drag_cb )
         {
-            return 
-            {
+            return {
                 mouse_pressed : function ()
                 {
                     let mouse_pos = new p5.Vector(mouseX, mouseY);
