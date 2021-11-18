@@ -39,8 +39,6 @@
     let interaction_cbs =
     {
         mouse_pressed : [],
-        mouse_dragged : [],
-        mouse_released : [],
     };
 
     MS.add_interaction_cb = function ( {mouse_pressed}={})
