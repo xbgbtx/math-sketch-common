@@ -68,7 +68,7 @@
             case InteractionStates.Idle :
             {
                 if(mouseIsPressed) 
-                    interaction_cbs.mouse_pressed.forEach( f => f( e ) );
+                    interaction_cbs.mouse_pressed.forEach( f => f() );
                 break;
             }
             case InteractionStates.Dragging :
