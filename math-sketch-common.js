@@ -41,7 +41,7 @@
         mouse_pressed : [],
     };
 
-    MS.add_render_cb = (cb) => render_cbs.push(x);
+    MS.add_interaction_cb = (cb) => interaction_cbs.push(x);
 
     MS.setup_interaction_hooks = function ()
     {
