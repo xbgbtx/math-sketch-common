@@ -36,6 +36,15 @@
         }
     }
 
+    class InteractionCB
+    {
+        constructor ( cb, priority ) 
+        {
+            this.cb = cb;
+            this.priority = priority;
+        }
+    }
+
     let interaction_cbs =
     {
         mouse_pressed : [],
@@ -47,7 +56,10 @@
     }={})
     {
         if ( mouse_pressed )
-            interaction_cbs.mouse_pressed.push(mouse_pressed);
+        {
+            let cb_data = new InteractionCB(mouse_pressed, priority);
+            interaction_cbs.mouse_pressed.push(cb_data);
+        }
     }
 
     const InteractionStates = {
@@ -71,9 +83,9 @@
             {
                 if(mouseIsPressed) 
                 {
-                    for ( const f of interaction_cbs.mouse_pressed )
+                    for ( const cb_data of interaction_cbs.mouse_pressed )
                     {
-                        let flag = f();
+                        let flag = cb_data.cb();
 
                         if (flag == InteractionFlags.BlockOtherInteractions)
                             break;
