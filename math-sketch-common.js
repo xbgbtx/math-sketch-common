@@ -108,25 +108,22 @@
 
     //Collection of factory methods that construct function pointers
     //for frequently used interactions
-    MS.Interactions =
+    MS.Interactions = {};
+        
+    MS.Interactions.drag_points = ( points, point_drag_cb ) =>
     {
-        drag_points : function ( points, point_drag_cb )
+        mouse_pressed : function ()
         {
-            return {
-                mouse_pressed : function ()
-                {
-                    let mouse_pos = new p5.Vector(mouseX, mouseY);
+            let mouse_pos = new p5.Vector(mouseX, mouseY);
 
-                    for ( const p of points )
-                    {
-                        if ( p5.Vector.dist(mouse_pos, p ) < 10 )
-                        {
-                            MS.start_drag(() => point_drag_cb(p));
-                            return InteractionFlags.BlockOtherInteractions;
-                        }
-                    }
+            for ( const p of points )
+            {
+                if ( p5.Vector.dist(mouse_pos, p ) < 10 )
+                {
+                    MS.start_drag(() => point_drag_cb(p));
+                    return InteractionFlags.BlockOtherInteractions;
                 }
-            };
+            }
         }
     };
 
