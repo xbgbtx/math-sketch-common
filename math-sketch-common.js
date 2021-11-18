@@ -111,7 +111,7 @@
     MS.Interactions = {};
         
     MS.Interactions.drag_points = ( points, point_drag_cb ) =>
-    {
+    ({
         mouse_pressed : function ()
         {
             let mouse_pos = new p5.Vector(mouseX, mouseY);
@@ -125,6 +125,6 @@
                 }
             }
         }
-    };
+    });
 
 }( window.MS = window.MS || {} ));
