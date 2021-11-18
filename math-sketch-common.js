@@ -65,7 +65,12 @@
             case InteractionStates.Idle :
             {
                 if(mouseIsPressed) 
-                    interaction_cbs.mouse_pressed.forEach( f => f() );
+                {
+                    for ( const f of interaction_cbs.mouse_pressed )
+                    {
+                        f();
+                    }
+                } 
                 break;
             }
             case InteractionStates.Dragging :
