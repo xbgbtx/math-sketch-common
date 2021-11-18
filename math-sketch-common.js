@@ -55,10 +55,14 @@
         priority=0,
     }={})
     {
+        let sort_interaction_priority = l =>
+            l.sort((i,j) => i.priority > j.priority ? 0 : 1 );
+
         if ( mouse_pressed )
         {
             let cb_data = new InteractionCB(mouse_pressed, priority);
             interaction_cbs.mouse_pressed.push(cb_data);
+            sort_interaction_priority(interaction_cbs.mouse_pressed);
         }
     }
 
