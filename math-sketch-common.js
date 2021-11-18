@@ -7,7 +7,13 @@
     MS.setup = function ()
     {
         draw_ = draw;
-        draw = () => draw_();
+        draw = () => 
+        {
+            draw_();
+            
+            for ( const cb of render_cbs )
+                cb();
+        };
     };
 
     MS.colors = 
