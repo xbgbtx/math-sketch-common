@@ -61,58 +61,30 @@
     
     let drag_cb = null;
 
-    MS.setup_interaction_hooks = function ()
+    MS.handle_interaction = function ()
     {
-        mousePressed_ = mousePressed;
-        mousePressed = ( e ) => 
+        switch ( interaction_state )
         {
-            if ( interaction_state != InteractionStates.Idle )
-                return;
-
-            mousePressed_( e );
-            interaction_cbs.mouse_pressed.forEach( f => f( e ) );
-        };
-
-        mouseDragged_ = mouseDragged;
-        mouseDragged = ( e ) => 
-        {
-            mouseDragged_( e );
-
-            if ( interaction_state != InteractionStates.Dragging )
-                return;
-
-            drag_cb();
-        };
-
-        mouseReleased_ = mouseReleased;
-        mouseReleased = ( e ) => 
-        {
-            if ( interaction_state == InteractionStates.Dragging )
-                MS.end_drag();
-
-            mouseReleased_( e );
-            interaction_cbs.mouse_released.forEach( f => f( e ) );
-        };
-
+            case InteractionStates.Idle :
+            {
+                if(mouseIsPressed) 
+                    interaction_cbs.mouse_pressed.forEach( f => f( e ) );
+                break;
+            }
+            case InteractionStates.Dragging :
+            {
+                if(mouseIsPressed) 
+                {
+                    drag_cb();
+                }
+                else
+                {
+                    drag_cb = null;
+                    interaction_state = InteractionStates.Idle;
+                }
+                break;
+            }
+        }
     };
-
-    MS.start_drag = function ( cb )
-    {
-        if ( interaction_state != InteractionStates.Idle )
-            return;
-
-        interaction_state = InteractionStates.Dragging;
-        drag_cb = cb;
-    };
-
-    MS.end_drag = function ()
-    {
-        if ( interaction_state != InteractionStates.Dragging )
-            return;
-
-        drag_cb = null;
-        interaction_state = InteractionStates.Idle;
-    };
-
 
 }( window.MS = window.MS || {} ));
