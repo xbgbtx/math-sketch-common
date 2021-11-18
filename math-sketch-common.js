@@ -93,6 +93,8 @@
         interaction_state = InteractionStates.Dragging;
     };
 
+    //Collection of factory methods that construct function pointers
+    //for frequently used interactions
     MS.Interactions =
     {
         drag_points : function ( points, point_drag_cb )
