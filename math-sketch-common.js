@@ -1,5 +1,15 @@
 ( function ( MS )
 {
+    let render_cbs = [];
+
+    MS.add_render_cb = (cb) => render_cbs.push(x);
+
+    MS.setup = function ()
+    {
+        draw_ = draw;
+        draw = () => draw_();
+    };
+
     MS.colors = 
     {
         background : "#200C49",
@@ -35,4 +45,5 @@
             text(label, p.x-3, p.y-3);
         }
     }
+
 }( window.MS = window.MS || {} ));
