@@ -1,19 +1,5 @@
 ( function ( MS )
 {
-    let render_cbs = [];
-
-    MS.add_render_cb = (cb) => render_cbs.push(x);
-
-    MS.setup = function ()
-    {
-        draw_ = draw;
-        draw = () => 
-        {
-            draw_();
-            render_cbs.forEach( f => f() );
-        };
-    };
-
     MS.colors = 
     {
         background : "#200C49",
@@ -49,5 +35,23 @@
             text(label, p.x-3, p.y-3);
         }
     }
+
+    let interaction_cbs =
+    {
+        mouse_pressed : [],
+    };
+
+    MS.add_render_cb = (cb) => render_cbs.push(x);
+
+    MS.setup_interaction_hooks = function ()
+    {
+        mousePressed_ = mousePressed;
+        mousePressed = () => 
+        {
+            mousePressed_();
+            interaction_cbs.mousePressed_.forEach( f => f() );
+        };
+    };
+
 
 }( window.MS = window.MS || {} ));
