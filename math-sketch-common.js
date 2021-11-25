@@ -45,6 +45,14 @@
         }
     }
 
+    //Prevent scrolling window on sketches
+    document.addEventListener ( 
+        "touchmove",
+        e => e.preventDefault(),
+        {passive : false}
+    );
+
+
     let interaction_cbs =
     {
         mouse_pressed : [],
