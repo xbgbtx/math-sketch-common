@@ -52,6 +52,12 @@
         {passive : false}
     );
 
+    window.addEventListener (
+        "resize",
+        e => resizeCanvas(windowWidth, windowHeight),
+        true
+    );
+
 
     let interaction_cbs =
     {
