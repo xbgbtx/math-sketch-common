@@ -54,7 +54,10 @@
 
     window.addEventListener (
         "resize",
-        e => resizeCanvas(windowWidth, windowHeight),
+        e => {
+            let s = min(windowWidth, 640);
+            resizeCanvas(s,s);
+        },
         true
     );
 
