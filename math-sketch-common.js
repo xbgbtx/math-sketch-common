@@ -13,6 +13,8 @@
         ]
     };
 
+    MS.create_canvas = () => createCanvas( 512, 512 );
+
     MS.renderPoint = function (p, 
     {
         label, 
