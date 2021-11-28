@@ -34,6 +34,16 @@
      */
     MS.create_canvas = () => createCanvas( 512, 512 );
 
+    /**
+     * Draw a point on canvas using p5js.
+     *
+     * @param {Object} p - p5.Vector2 location to draw the point.
+     * @param {Object=} obj - Optional parameters object.
+     * @param {string} obj.label - Display text for point.
+     * @param {string} obj.color - Hex string to color point.
+     * @param {number} obj.point_weight - Size of point to draw.
+     * @param {number} obj.text_size - Size of text for point label.
+     */
     MS.renderPoint = function (p, 
     {
         label, 
