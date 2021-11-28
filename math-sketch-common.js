@@ -1,5 +1,21 @@
+/**
+ * @module math-sketch-common
+ */
+
+/**
+ * @class
+ * @name MS
+ * @description Use window.MS to access common sketch functions.
+ * @param {Object} context for exported MS.
+ */
 ( function ( MS )
+/**
+ * @lends MS
+ */
 {
+    /**
+     * Object containing standard colours.
+     */
     MS.colors = 
     {
         background : "#200C49",
@@ -13,6 +29,9 @@
         ]
     };
 
+    /**
+     * Creates a canvas with the standard size (512x512)
+     */
     MS.create_canvas = () => createCanvas( 512, 512 );
 
     MS.renderPoint = function (p, 
