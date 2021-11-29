@@ -125,7 +125,6 @@
         e => 
         {
             console.log ( "mousedown" );
-            e.preventDefault();
         },
         {passive : false}
     );
@@ -142,7 +141,6 @@
         e => 
         {
             console.log ( "mouseup" );
-            e.preventDefault();
         },
         {passive : false}
     );
