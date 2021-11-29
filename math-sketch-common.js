@@ -77,7 +77,8 @@
             e => 
             {
                 console.log(`pointer_up s=${interaction_state}`);
-                pointer_up ();
+                if ( e.isPrimary )
+                    pointer_up ();
             },
             {passive : false}
         );
@@ -94,7 +95,8 @@
             e => 
             {
                 console.log(`pointer_leave s=${interaction_state}`);
-                pointer_up ();
+                if ( e.isPrimary )
+                    pointer_up ();
             },
             {passive : false}
         );
