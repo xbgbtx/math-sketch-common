@@ -122,7 +122,7 @@
             pointer_move ();
 
             //prevent scrolling when dragging sketches
-            //e.preventDefault();
+            e.preventDefault();
         },
         {passive : false}
     );
@@ -154,6 +154,7 @@
         "mousemove",
         e => 
         {
+            console.log(`pointer_move ${x} ${y}`);
             pointer_move ();
         },
         {passive : false}
