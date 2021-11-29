@@ -101,6 +101,7 @@
 
     const InteractionFlags = {
         BlockOtherInteractions : "BlockOtherInteractions",
+        InteractionHappened : "InteractionHappened",
     };
 
     let interaction_state = InteractionStates.Idle;
@@ -119,7 +120,11 @@
         e => 
         {
             console.log(`pointer_move ${mouseX} ${mouseY}`);
-            pointer_move ();
+
+            const flag = pointer_move ();
+
+            if ( flag == InteractionFlags.InteractionHappened )
+                e.preventDefault ();
         },
         {passive : false}
     );
@@ -135,6 +140,7 @@
         "pointerdown",
         e => 
         {
+            console.log("Pointer Down");
             pointer_down ();
         },
         {passive : false}
