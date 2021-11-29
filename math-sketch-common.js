@@ -32,7 +32,11 @@
     /**
      * Creates a canvas with the standard size (512x512)
      */
-    MS.create_canvas = () => createCanvas( 512, 512 );
+    MS.create_canvas = () => 
+    {
+        const c = createCanvas( 512, 512 );
+        c.draggable=true;
+    }
 
     /**
      * Draw a point on canvas using p5js.
