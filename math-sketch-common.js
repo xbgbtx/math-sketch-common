@@ -95,8 +95,7 @@
     }
 
     /**
-     * Listen to the document touchmove event to prevent scrolling 
-     * window on sketches
+     * Listen to the document touchmove event.
      *
      * @name touchmove
      * @param {HTMLEvent} e - Observable event.
@@ -104,7 +103,47 @@
      */
     document.addEventListener ( 
         "touchmove",
-        e => e.preventDefault(),
+        e => 
+        {
+            console.log ( "TouchMove" );
+
+            //prevent scrolling when dragging sketches
+            e.preventDefault();
+        },
+        {passive : false}
+    );
+
+    /**
+     * Listen to the document mousedown event.
+     *
+     * @name mousedown
+     * @param {HTMLEvent} e - Observable event.
+     * @event document:mousedown
+     */
+    document.addEventListener ( 
+        "mousedown",
+        e => 
+        {
+            console.log ( "mousedown" );
+            e.preventDefault();
+        },
+        {passive : false}
+    );
+
+    /**
+     * Listen to the document mouseup event.
+     *
+     * @name mouseup
+     * @param {HTMLEvent} e - Observable event.
+     * @event document:mouseup
+     */
+    document.addEventListener ( 
+        "mouseup",
+        e => 
+        {
+            console.log ( "mouseup" );
+            e.preventDefault();
+        },
         {passive : false}
     );
 
