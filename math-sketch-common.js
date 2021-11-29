@@ -122,7 +122,7 @@
             pointer_move ();
 
             //prevent scrolling when dragging sketches
-            e.preventDefault();
+            //e.preventDefault();
         },
         {passive : false}
     );
@@ -140,7 +140,7 @@
         {
             pointer_down ();
         },
-        {passive : true}
+        {passive : false}
     );
 
     /**
