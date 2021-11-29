@@ -75,7 +75,7 @@
             "pointerdown",
             e => 
             {
-                console.log("Pointer Down");
+                console.log(`pointer_down ${mouseX} ${mouseY}`);
                 pointer_down ();
             },
             {passive : false}
