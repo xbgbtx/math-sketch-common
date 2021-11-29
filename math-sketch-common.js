@@ -53,7 +53,10 @@
             {
                 console.log(`pointer_move s=${interaction_state}`);
 
-                const flag = pointer_move ();
+                const flag = pointer_move ({
+                    pointerX : e.clientX,
+                    pointerY : e.clientY,
+                });
                 
                 //if ( flag == InteractionFlags.InteractionHappened )
                 e.preventDefault ();
@@ -108,7 +111,10 @@
             e => 
             {
                 console.log(`pointer_down s=${interaction_state}`);
-                pointer_down ();
+                pointer_down ({
+                    pointerX : e.clientX,
+                    pointerY : e.clientY,
+                });
             },
             {passive : false}
         );
@@ -230,7 +236,7 @@
         interaction_state = InteractionStates.Idle;
     }
 
-    const pointer_down = function ()
+    const pointer_down = function ({pointerX, pointerY}={})
     {
         if ( interaction_state != InteractionStates.Idle )
             return;
@@ -244,13 +250,13 @@
         }
     }
 
-    const pointer_move = function ()
+    const pointer_move = function ({pointerX, pointerY}={})
     {
         if ( interaction_state != InteractionStates.Dragging )
             return;
 
         if ( drag_cb )
-            drag_cb();
+            drag_cb({pointerX, pointerY});
     }
 
     const pointer_up = function ()
@@ -280,7 +286,7 @@
             {
                 if ( p5.Vector.dist(mouse_pos, p ) < 80 )
                 {
-                    start_drag(() => point_drag_cb(p));
+                    start_drag((drag_data) => point_drag_cb(p, drag_data));
                     return InteractionFlags.BlockOtherInteractions;
                 }
             }
