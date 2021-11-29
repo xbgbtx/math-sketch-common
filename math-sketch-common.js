@@ -51,7 +51,7 @@
             "pointermove",
             e => 
             {
-                console.log(`pointer_move`);
+                console.log(`pointer_move s=${interaction_state}`);
 
                 const flag = pointer_move ();
                 
@@ -73,7 +73,7 @@
             "pointerup",
             e => 
             {
-                console.log(`pointer_up`);
+                console.log(`pointer_up s=${interaction_state}`);
                 pointer_up ();
             },
             {passive : false}
@@ -90,7 +90,7 @@
             "pointerleave",
             e => 
             {
-                console.log(`pointer_leave`);
+                console.log(`pointer_leave s=${interaction_state}`);
                 pointer_up ();
             },
             {passive : false}
@@ -107,7 +107,7 @@
             "pointerdown",
             e => 
             {
-                console.log(`pointer_down`);
+                console.log(`pointer_down s=${interaction_state}`);
                 pointer_down ();
             },
             {passive : false}
