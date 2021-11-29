@@ -35,7 +35,8 @@
      */
     MS.create_canvas = function ()
     { 
-        const canvas = createCanvas( 512, 512 );
+        const drawCtx = createCanvas( 512, 512 );
+        const canvas = drawCtx.canvas;
 
         /**
          * Listen to the document pointermove event.
