@@ -51,12 +51,10 @@
             "pointermove",
             e => 
             {
-                console.log(`pointer_move ${mouseX} ${mouseY}`);
+                console.log(`pointer_move`);
 
                 const flag = pointer_move ();
                 
-                console.log ( e );
-
                 //if ( flag == InteractionFlags.InteractionHappened )
                 e.preventDefault ();
                 e.stopPropagation();
@@ -75,7 +73,7 @@
             "pointerup",
             e => 
             {
-                console.log(`pointer_up ${mouseX} ${mouseY}`);
+                console.log(`pointer_up`);
                 pointer_up ();
             },
             {passive : false}
@@ -92,7 +90,7 @@
             "pointerleave",
             e => 
             {
-                console.log(`pointer_leave ${mouseX} ${mouseY}`);
+                console.log(`pointer_leave`);
                 pointer_up ();
             },
             {passive : false}
@@ -109,7 +107,7 @@
             "pointerdown",
             e => 
             {
-                console.log(`pointer_down ${mouseX} ${mouseY}`);
+                console.log(`pointer_down`);
                 pointer_down ();
             },
             {passive : false}
