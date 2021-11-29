@@ -119,10 +119,26 @@
         "touchmove",
         e => 
         {
-            console.log ( "TouchMove" );
+            pointer_move ();
 
             //prevent scrolling when dragging sketches
             e.preventDefault();
+        },
+        {passive : false}
+    );
+
+    /**
+     * Listen to the document ontouchstart event.
+     *
+     * @name ontouchstart
+     * @param {HTMLEvent} e - Observable event.
+     * @event document:ontouchstart
+     */
+    document.addEventListener ( 
+        "ontouchstart",
+        e => 
+        {
+            pointer_down ();
         },
         {passive : false}
     );
@@ -138,8 +154,7 @@
         "mousemove",
         e => 
         {
-            console.log ( "mousemove" );
-            e.preventDefault();
+            pointer_move ();
         },
         {passive : false}
     );
@@ -155,26 +170,11 @@
         "mousedown",
         e => 
         {
-            console.log ( "mousedown" );
+            pointer_down ();
         },
         {passive : false}
     );
 
-    /**
-     * Listen to the document mouseup event.
-     *
-     * @name mouseup
-     * @param {HTMLEvent} e - Observable event.
-     * @event document:mouseup
-     */
-    document.addEventListener ( 
-        "mouseup",
-        e => 
-        {
-            console.log ( "mouseup" );
-        },
-        {passive : false}
-    );
 
     //Store InteractionCB objects here as they are added.
     let interaction_cbs =
@@ -198,40 +198,6 @@
         }
     }
 
-    MS.handle_interaction = function ()
-    {
-        switch ( interaction_state )
-        {
-            case InteractionStates.Idle :
-            {
-                if(mouseIsPressed) 
-                {
-                    for ( const cb_data of interaction_cbs.mouse_pressed )
-                    {
-                        let flag = cb_data.cb();
-
-                        if (flag == InteractionFlags.BlockOtherInteractions)
-                            break;
-                    }
-                } 
-                break;
-            }
-            case InteractionStates.Dragging :
-            {
-                if(mouseIsPressed) 
-                {
-                    drag_cb();
-                }
-                else
-                {
-                    drag_cb = null;
-                    interaction_state = InteractionStates.Idle;
-                }
-                break;
-            }
-        }
-    };
-
     const start_drag = function ( cb )
     {
         if ( interaction_state != InteractionStates.Idle )
@@ -240,6 +206,36 @@
         drag_cb = cb;
         interaction_state = InteractionStates.Dragging;
     };
+
+    const pointer_down = function ()
+    {
+        if ( interaction_state != InteractionStates.Idle )
+            return;
+
+        for ( const cb_data of interaction_cbs.mouse_pressed )
+        {
+            let flag = cb_data.cb();
+
+            if (flag == InteractionFlags.BlockOtherInteractions)
+                break;
+        }
+    }
+
+    const pointer_move = function ()
+    {
+        if ( interaction_state != InteractionStates.Dragging )
+            return;
+
+        if ( mouseIsPressed ) 
+        {
+            drag_cb();
+        }
+        else
+        {
+            drag_cb = null;
+            interaction_state = InteractionStates.Idle;
+        }
+    }
 
     /**
     * Collection of factory methods that construct function pointers
