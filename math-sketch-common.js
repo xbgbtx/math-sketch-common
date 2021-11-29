@@ -95,8 +95,7 @@
             e => 
             {
                 console.log(`pointer_leave s=${interaction_state}`);
-                if ( e.isPrimary )
-                    pointer_up ();
+                pointer_up ();
             },
             {passive : false}
         );
@@ -113,10 +112,11 @@
             e => 
             {
                 console.log(`pointer_down s=${interaction_state}`);
-                pointer_down ({
-                    pointerX : e.clientX,
-                    pointerY : e.clientY,
-                });
+                if ( e.isPrimary )
+                    pointer_down ({
+                        pointerX : e.clientX,
+                        pointerY : e.clientY,
+                    });
             },
             {passive : false}
         );
