@@ -122,6 +122,8 @@
             console.log(`pointer_move ${mouseX} ${mouseY}`);
 
             const flag = pointer_move ();
+            
+            console.log ( e );
 
             //if ( flag == InteractionFlags.InteractionHappened )
                 e.preventDefault ();
