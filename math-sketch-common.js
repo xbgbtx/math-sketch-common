@@ -94,6 +94,20 @@
         }
     }
 
+    const InteractionStates = {
+        Idle : "Idle",
+        Dragging : "Dragging",
+    };
+
+    const InteractionFlags = {
+        BlockOtherInteractions : "BlockOtherInteractions",
+    };
+
+    let interaction_state = InteractionStates.Idle;
+    
+    let drag_cb = null;
+
+
     /**
      * Listen to the document touchmove event.
      *
@@ -183,19 +197,6 @@
             sort_interaction_priority(interaction_cbs.mouse_pressed);
         }
     }
-
-    const InteractionStates = {
-        Idle : "Idle",
-        Dragging : "Dragging",
-    };
-
-    const InteractionFlags = {
-        BlockOtherInteractions : "BlockOtherInteractions",
-    };
-
-    let interaction_state = InteractionStates.Idle;
-    
-    let drag_cb = null;
 
     MS.handle_interaction = function ()
     {
