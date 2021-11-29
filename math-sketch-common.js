@@ -126,7 +126,8 @@
             console.log ( e );
 
             //if ( flag == InteractionFlags.InteractionHappened )
-                e.preventDefault ();
+            e.preventDefault ();
+            e.stopPropagation();
         },
         {passive : false}
     );
