@@ -67,8 +67,26 @@
         }
     }
 
+    /**
+     * Class to hold the data needed for an interaction callback.
+     */
     class InteractionCB
     {
+        /**
+         * The interaction callback is called when the associated
+         * interaction event occurs,
+         *
+         * @callback interactionCallback
+         */
+
+        /**
+         * Create an interaction callback.
+         * @param {interactionCallback} cb - Called when interaction event 
+         * occurs.
+         * @param {number} priority - Higher priority events will be triggered
+         * before lower priority if multiple interaction activation 
+         * areas overlap.
+         */
         constructor ( cb, priority ) 
         {
             this.cb = cb;
@@ -76,7 +94,14 @@
         }
     }
 
-    //Prevent scrolling window on sketches
+    /**
+     * Listen to the document touchmove event to prevent scrolling 
+     * window on sketches
+     *
+     * @name touchmove
+     * @param {HTMLEvent} e - Observable event.
+     * @event document:touchmove
+     */
     document.addEventListener ( 
         "touchmove",
         e => e.preventDefault(),
