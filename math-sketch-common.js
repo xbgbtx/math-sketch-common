@@ -208,17 +208,10 @@
         if ( interaction_state != InteractionStates.Dragging )
             return;
 
-        if ( mouseIsPressed ) 
-        {
+        if ( drag_cb )
             drag_cb();
-        }
-        else
-        {
-            drag_cb = null;
-            interaction_state = InteractionStates.Idle;
-        }
     }
-
+    
     /**
     * Collection of factory methods that construct function pointers
     * for frequently used interactions
