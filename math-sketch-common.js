@@ -154,7 +154,7 @@
         "mousemove",
         e => 
         {
-            console.log(`pointer_move ${x} ${y}`);
+            console.log(`pointer_move ${mouseX} ${mouseY}`);
             pointer_move ();
         },
         {passive : false}
