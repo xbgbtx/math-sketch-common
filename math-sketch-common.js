@@ -286,7 +286,7 @@
 
             for ( const p of points )
             {
-                if ( p5.Vector.dist(mouse_pos, p ) < 80 )
+                if ( p5.Vector.dist(mouse_pos, p ) < 15 )
                 {
                     start_drag((drag_data) => point_drag_cb(p, drag_data));
                     return InteractionFlags.BlockOtherInteractions;
