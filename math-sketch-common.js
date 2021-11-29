@@ -65,6 +65,23 @@
         );
 
         /**
+         * Listen to the document pointerup event.
+         *
+         * @name pointerup
+         * @param {HTMLEvent} e - Observable event.
+         * @event document:pointerup
+         */
+        canvas.addEventListener ( 
+            "pointerup",
+            e => 
+            {
+                console.log(`pointer_up ${mouseX} ${mouseY}`);
+                pointer_up ();
+            },
+            {passive : false}
+        );
+
+        /**
          * Listen to the document pointerdown event.
          *
          * @name pointerdown
@@ -189,6 +206,15 @@
         interaction_state = InteractionStates.Dragging;
     };
 
+    const stop_drag = function ()
+    {
+        if ( interaction_state != InteractionStates.Dragging )
+            return;
+
+        drag_cb = undefined;
+        interaction_state = InteractionStates.Idle;
+    }
+
     const pointer_down = function ()
     {
         if ( interaction_state != InteractionStates.Idle )
@@ -210,6 +236,11 @@
 
         if ( drag_cb )
             drag_cb();
+    }
+
+    const pointer_up = function ()
+    {
+        stop_drag();
     }
     
     /**
