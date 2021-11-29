@@ -114,6 +114,23 @@
     );
 
     /**
+     * Listen to the document drag event.
+     *
+     * @name drag
+     * @param {HTMLEvent} e - Observable event.
+     * @event document:drag
+     */
+    document.addEventListener ( 
+        "drag",
+        e => 
+        {
+            console.log ( "drag" );
+            e.preventDefault();
+        },
+        {passive : false}
+    );
+
+    /**
      * Listen to the document mousedown event.
      *
      * @name mousedown
