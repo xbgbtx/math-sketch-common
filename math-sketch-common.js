@@ -108,6 +108,7 @@
         {passive : false}
     );
 
+    //Store InteractionCB objects here as they are added.
     let interaction_cbs =
     {
         mouse_pressed : [],
@@ -185,10 +186,18 @@
         interaction_state = InteractionStates.Dragging;
     };
 
-    //Collection of factory methods that construct function pointers
-    //for frequently used interactions
+    /**
+    * Collection of factory methods that construct function pointers
+    * for frequently used interactions
+    * @namespace MS.Interactions
+    */
     MS.Interactions = {};
         
+    /**
+     * Add a list of points that can be dragged using the same drag callback.
+     * @name drag_points
+     * @memberof MS.Interactions
+     */
     MS.Interactions.drag_points = ( points, point_drag_cb ) =>
     ({
         mouse_pressed : function ()
