@@ -93,7 +93,7 @@
             e => 
             {
                 console.log(`pointer_leave ${mouseX} ${mouseY}`);
-                pointer_leave ();
+                pointer_up ();
             },
             {passive : false}
         );
