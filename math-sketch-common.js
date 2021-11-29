@@ -123,7 +123,7 @@
 
             const flag = pointer_move ();
 
-            if ( flag == InteractionFlags.InteractionHappened )
+            //if ( flag == InteractionFlags.InteractionHappened )
                 e.preventDefault ();
         },
         {passive : false}
