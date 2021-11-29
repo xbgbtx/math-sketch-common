@@ -30,9 +30,54 @@
     };
 
     /**
-     * Creates a canvas with the standard size (512x512)
+     * Creates a canvas with the standard size (512x512) and adds
+     * event listeners.
      */
-    MS.create_canvas = () => createCanvas( 512, 512 );
+    MS.create_canvas = function ()
+    { 
+        const canvas = createCanvas( 512, 512 );
+
+        /**
+         * Listen to the document pointermove event.
+         *
+         * @name pointermove
+         * @param {HTMLEvent} e - Observable event.
+         * @event document:pointermove
+         */
+        canvas.addEventListener ( 
+            "pointermove",
+            e => 
+            {
+                console.log(`pointer_move ${mouseX} ${mouseY}`);
+
+                const flag = pointer_move ();
+                
+                console.log ( e );
+
+                //if ( flag == InteractionFlags.InteractionHappened )
+                e.preventDefault ();
+                e.stopPropagation();
+            },
+            {passive : false}
+        );
+
+        /**
+         * Listen to the document pointerdown event.
+         *
+         * @name pointerdown
+         * @param {HTMLEvent} e - Observable event.
+         * @event document:pointerdown
+         */
+        canvas.addEventListener ( 
+            "pointerdown",
+            e => 
+            {
+                console.log("Pointer Down");
+                pointer_down ();
+            },
+            {passive : false}
+        );
+    };
 
     /**
      * Draw a point on canvas using p5js.
@@ -108,46 +153,6 @@
     
     let drag_cb = null;
 
-    /**
-     * Listen to the document pointermove event.
-     *
-     * @name pointermove
-     * @param {HTMLEvent} e - Observable event.
-     * @event document:pointermove
-     */
-    document.addEventListener ( 
-        "pointermove",
-        e => 
-        {
-            console.log(`pointer_move ${mouseX} ${mouseY}`);
-
-            const flag = pointer_move ();
-            
-            console.log ( e );
-
-            //if ( flag == InteractionFlags.InteractionHappened )
-            e.preventDefault ();
-            e.stopPropagation();
-        },
-        {passive : false}
-    );
-
-    /**
-     * Listen to the document pointerdown event.
-     *
-     * @name pointerdown
-     * @param {HTMLEvent} e - Observable event.
-     * @event document:pointerdown
-     */
-    document.addEventListener ( 
-        "pointerdown",
-        e => 
-        {
-            console.log("Pointer Down");
-            pointer_down ();
-        },
-        {passive : false}
-    );
 
 
     //Store InteractionCB objects here as they are added.
