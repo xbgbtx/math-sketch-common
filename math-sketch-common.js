@@ -177,7 +177,7 @@
         }
     };
 
-    MS.start_drag = function ( cb )
+    const start_drag = function ( cb )
     {
         if ( interaction_state != InteractionStates.Idle )
             return;
@@ -208,7 +208,7 @@
             {
                 if ( p5.Vector.dist(mouse_pos, p ) < 10 )
                 {
-                    MS.start_drag(() => point_drag_cb(p));
+                    start_drag(() => point_drag_cb(p));
                     return InteractionFlags.BlockOtherInteractions;
                 }
             }
