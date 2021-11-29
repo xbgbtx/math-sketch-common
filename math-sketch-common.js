@@ -32,11 +32,7 @@
     /**
      * Creates a canvas with the standard size (512x512)
      */
-    MS.create_canvas = () => 
-    {
-        const c = createCanvas( 512, 512 );
-        c.draggable=true;
-    }
+    MS.create_canvas = () => createCanvas( 512, 512 );
 
     /**
      * Draw a point on canvas using p5js.
@@ -118,17 +114,17 @@
     );
 
     /**
-     * Listen to the document drag event.
+     * Listen to the document mousemove event.
      *
-     * @name drag
+     * @name mousemove
      * @param {HTMLEvent} e - Observable event.
-     * @event document:drag
+     * @event document:mousemove
      */
     document.addEventListener ( 
-        "drag",
+        "mousemove",
         e => 
         {
-            console.log ( "drag" );
+            console.log ( "mousemove" );
             e.preventDefault();
         },
         {passive : false}
