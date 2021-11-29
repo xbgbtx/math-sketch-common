@@ -128,14 +128,14 @@
     );
 
     /**
-     * Listen to the document ontouchstart event.
+     * Listen to the document touchstart event.
      *
-     * @name ontouchstart
+     * @name touchstart
      * @param {HTMLEvent} e - Observable event.
-     * @event document:ontouchstart
+     * @event document:touchstart
      */
     document.addEventListener ( 
-        "ontouchstart",
+        "touchstart",
         e => 
         {
             pointer_down ();
