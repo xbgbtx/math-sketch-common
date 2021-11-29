@@ -107,51 +107,15 @@
     
     let drag_cb = null;
 
-
     /**
-     * Listen to the document touchmove event.
+     * Listen to the document pointermove event.
      *
-     * @name touchmove
+     * @name pointermove
      * @param {HTMLEvent} e - Observable event.
-     * @event document:touchmove
+     * @event document:pointermove
      */
     document.addEventListener ( 
-        "touchmove",
-        e => 
-        {
-            pointer_move ();
-
-            //prevent scrolling when dragging sketches
-            e.preventDefault();
-        },
-        {passive : false}
-    );
-
-    /**
-     * Listen to the document touchstart event.
-     *
-     * @name touchstart
-     * @param {HTMLEvent} e - Observable event.
-     * @event document:touchstart
-     */
-    document.addEventListener ( 
-        "touchstart",
-        e => 
-        {
-            pointer_down ();
-        },
-        {passive : false}
-    );
-
-    /**
-     * Listen to the document mousemove event.
-     *
-     * @name mousemove
-     * @param {HTMLEvent} e - Observable event.
-     * @event document:mousemove
-     */
-    document.addEventListener ( 
-        "mousemove",
+        "pointermove",
         e => 
         {
             console.log(`pointer_move ${mouseX} ${mouseY}`);
@@ -161,14 +125,14 @@
     );
 
     /**
-     * Listen to the document mousedown event.
+     * Listen to the document pointerdown event.
      *
-     * @name mousedown
+     * @name pointerdown
      * @param {HTMLEvent} e - Observable event.
-     * @event document:mousedown
+     * @event document:pointerdown
      */
     document.addEventListener ( 
-        "mousedown",
+        "pointerdown",
         e => 
         {
             pointer_down ();
