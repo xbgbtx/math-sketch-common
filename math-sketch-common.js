@@ -140,7 +140,7 @@
         {
             pointer_down ();
         },
-        {passive : false}
+        {passive : true}
     );
 
     /**
