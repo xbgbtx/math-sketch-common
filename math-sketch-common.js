@@ -82,6 +82,25 @@
             {passive : false}
         );
 
+        /**
+         * Listen to the document gotpointercapture event.
+         *
+         * @name gotpointercapture
+         * @param {HTMLEvent} e - Observable event.
+         * @event document:gotpointercapture
+         */
+        canvas.addEventListener ( 
+            "gotpointercapture",
+            e => 
+            {
+                console.log(`gotpointercapture s=${interaction_state}`);
+                pointer_down ({
+                    pointerX : e.clientX,
+                    pointerY : e.clientY,
+                });
+            },
+            {passive : false}
+        );
 
         /**
          * Listen to the document pointerdown event.
@@ -94,16 +113,12 @@
             "pointerdown",
             e => 
             {
-                console.log(`pointer_down s=${interaction_state} (${e.clientX},${e.clientY})`); 
+                console.log(`pointer_down s=${interaction_state}`); 
                 if ( e.isPrimary )
                 {
                     e.preventDefault();
                     e.stopPropagation();
                     canvas.setPointerCapture ( e.pointerId );
-                    pointer_down ({
-                        pointerX : e.clientX,
-                        pointerY : e.clientY,
-                    });
                 }
             },
             {passive : false}
