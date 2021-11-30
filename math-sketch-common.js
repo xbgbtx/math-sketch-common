@@ -38,7 +38,7 @@
         const drawCtx = createCanvas( 512, 512 );
         const canvas = drawCtx.canvas;
 
-        //canvas.style.touchAction = "none";
+        canvas.style.touchAction = "none";
 
         /**
          * Listen to the document pointermove event.
@@ -95,16 +95,13 @@
             e => 
             {
                 console.log(`pointer_down s=${interaction_state}`);
-                if ( e.isPrimary )
-                {
-                    e.preventDefault();
-                    e.stopPropagation();
-                    canvas.setPointerCapture ( e.pointerId );
-                    pointer_down ({
-                        pointerX : e.clientX,
-                        pointerY : e.clientY,
-                    });
-                }
+                e.preventDefault();
+                e.stopPropagation();
+                canvas.setPointerCapture ( e.pointerId );
+                pointer_down ({
+                    pointerX : e.clientX,
+                    pointerY : e.clientY,
+                });
             },
             {passive : false}
         );
