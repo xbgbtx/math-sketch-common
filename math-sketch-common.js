@@ -51,8 +51,6 @@
             "pointermove",
             e => 
             {
-                console.log(`pointer_move s=${interaction_state}`);
-
                 const flag = pointer_move ({
                     pointerX : e.clientX,
                     pointerY : e.clientY,
@@ -77,7 +75,6 @@
             "lostpointercapture",
             e => 
             {
-                console.log(`lostpointercapture s=${interaction_state}`);
                 pointer_up ();
             },
             {passive : false}
@@ -95,7 +92,6 @@
             "gotpointercapture",
             e => 
             {
-                console.log(`gotpointercapture s=${interaction_state}`);
                 pointer_down ({
                     pointerX : e.clientX,
                     pointerY : e.clientY,
@@ -116,7 +112,6 @@
             "pointerdown",
             e => 
             {
-                console.log(`pointer_down s=${interaction_state}`); 
                 if ( e.isPrimary )
                 {
                     e.preventDefault();
