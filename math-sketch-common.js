@@ -73,7 +73,7 @@
          * @event document:pointerup
          */
         canvas.addEventListener ( 
-            "pointerup",
+            "lostpointercapture",
             e => 
             {
                 console.log(`pointer_up s=${interaction_state}`);
