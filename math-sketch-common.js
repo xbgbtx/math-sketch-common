@@ -38,7 +38,7 @@
         const drawCtx = createCanvas( 512, 512 );
         const canvas = drawCtx.canvas;
 
-        canvas.style.touchAction = "none";
+        //canvas.style.touchAction = "none";
 
         /**
          * Listen to the document pointermove event.
