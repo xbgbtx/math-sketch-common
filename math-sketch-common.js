@@ -82,22 +82,6 @@
             {passive : false}
         );
 
-        /**
-         * Listen to the document pointerleave event.
-         *
-         * @name pointerleave
-         * @param {HTMLEvent} e - Observable event.
-         * @event document:pointerleave
-         */
-        canvas.addEventListener ( 
-            "pointerleave",
-            e => 
-            {
-                console.log(`pointer_leave s=${interaction_state}`);
-                pointer_up ();
-            },
-            {passive : false}
-        );
 
         /**
          * Listen to the document pointerdown event.
