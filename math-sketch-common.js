@@ -113,10 +113,13 @@
             {
                 console.log(`pointer_down s=${interaction_state}`);
                 if ( e.isPrimary )
+                {
+                    canvas.setPointerCapture ( e.pointerId );
                     pointer_down ({
                         pointerX : e.clientX,
                         pointerY : e.clientY,
                     });
+                }
             },
             {passive : false}
         );
