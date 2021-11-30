@@ -182,7 +182,7 @@
 
     let interaction_state = InteractionStates.Idle;
     
-    let drag_cb = null;
+    let pointer_move_cb = null;
 
 
 
@@ -213,7 +213,7 @@
         if ( interaction_state != InteractionStates.Idle )
             return;
 
-        drag_cb = cb;
+        pointer_move_cb = cb;
         interaction_state = InteractionStates.Dragging;
     };
 
@@ -222,7 +222,7 @@
         if ( interaction_state != InteractionStates.Dragging )
             return;
 
-        drag_cb = undefined;
+        pointer_move_cb = undefined;
         interaction_state = InteractionStates.Idle;
     }
 
@@ -242,11 +242,8 @@
 
     const pointer_move = function ({pointerX, pointerY}={})
     {
-        if ( interaction_state != InteractionStates.Dragging )
-            return;
-
-        if ( drag_cb )
-            drag_cb({pointerX, pointerY});
+        if ( pointer_move_cb )
+            pointer_move_cb({pointerX, pointerY});
     }
 
     const pointer_up = function ()
