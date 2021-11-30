@@ -66,19 +66,18 @@
         );
 
         /**
-         * Listen to the document pointerup event.
+         * Listen to the document lostpointercapture event.
          *
-         * @name pointerup
+         * @name lostpointercapture
          * @param {HTMLEvent} e - Observable event.
-         * @event document:pointerup
+         * @event document:lostpointercapture
          */
         canvas.addEventListener ( 
             "lostpointercapture",
             e => 
             {
-                console.log(`pointer_up s=${interaction_state}`);
-                if ( e.isPrimary )
-                    pointer_up ();
+                console.log(`lostpointercapture s=${interaction_state}`);
+                pointer_up ();
             },
             {passive : false}
         );
