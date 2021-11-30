@@ -66,7 +66,8 @@
         );
 
         /**
-         * Listen to the document lostpointercapture event.
+         * Listen to the document lostpointercapture event.  This is
+         * used to determine that the pointer click is released.
          *
          * @name lostpointercapture
          * @param {HTMLEvent} e - Observable event.
@@ -83,7 +84,8 @@
         );
 
         /**
-         * Listen to the document gotpointercapture event.
+         * Listen to the document gotpointercapture event.  This is
+         * used to determine that the pointer is clicked down.
          *
          * @name gotpointercapture
          * @param {HTMLEvent} e - Observable event.
@@ -103,7 +105,8 @@
         );
 
         /**
-         * Listen to the document pointerdown event.
+         * Listen to the document pointerdown event and capture the
+         * pointer if it is the primary pointer,
          *
          * @name pointerdown
          * @param {HTMLEvent} e - Observable event.
