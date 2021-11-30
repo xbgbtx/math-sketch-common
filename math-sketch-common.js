@@ -94,7 +94,7 @@
             "pointerdown",
             e => 
             {
-                console.log(`pointer_down s=${interaction_state}`);
+                console.log(`pointer_down s=${interaction_state} (${e.clientX},${e.clientY})`); 
                 if ( e.isPrimary )
                 {
                     e.preventDefault();
