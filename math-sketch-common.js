@@ -114,6 +114,8 @@
                 console.log(`pointer_down s=${interaction_state}`);
                 if ( e.isPrimary )
                 {
+                    e.preventDefault();
+                    e.stopPropagation();
                     canvas.setPointerCapture ( e.pointerId );
                     pointer_down ({
                         pointerX : e.clientX,
